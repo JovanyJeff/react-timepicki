@@ -15,10 +15,11 @@ React Timepicki is ReactJs Time picker component to implement in react app forms
 
 ## Usage
 
-`import TimePicker from 'rc-time-picker';
+```
+import TimePicker from 'rc-time-picker';
 import ReactDOM from 'react-dom';
-ReactDOM.render(<TimePicker />, container);`
-
+ReactDOM.render(<TimePicker />, container);
+```
 ## Author
 
 Senthil - senthil2rajan@gmail.com

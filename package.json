@@ -20,6 +20,7 @@
   "homepage": "https://github.com/senthilraj/react-timepicki#readme",
   "license": "MIT",
   "dependencies": {},
+  "keywords": ["react", "time-picker", "react-time-picker", "react-component", "timepicker", "react-timepicki", "timepicki"],
   "devDependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
