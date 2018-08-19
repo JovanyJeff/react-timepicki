@@ -1,6 +1,6 @@
 {
   "name": "react-timepicki",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React Timepicki is ReactJs Time picker component to implement in react app forms",
   "main": "build/index.js",
   "scripts": {
