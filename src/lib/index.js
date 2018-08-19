@@ -1,2 +1,2 @@
 import ReactTimePicki from "./ReactTimePicki";
-export { ReactTimePicki };
+export default ReactTimePicki;
