@@ -1,4 +1,9 @@
 # react-timepicki - ReactJs Time picker
+
+
+![alt text](https://raw.githubusercontent.com/senthilraj/react-timepicki/master/demo/img/react-timepicki-logo.png)
+
+
 React Timepicki is ReactJs Time picker component to implement in react app forms, it is re-usable component to implement easily in your project.
 
 
