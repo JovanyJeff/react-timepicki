@@ -68,13 +68,20 @@ class ReactTimePicki extends React.Component {
 
 	setValueClickHandler() {
 		let setTime = "";
+		const getTime = {};
 		if( this.props.timeFormat === "12" ) {
 			setTime = ("0"+this.state.currentHours).slice(-2) + " : " + ("0"+this.state.currentMinutes).slice(-2) + " : " + this.state.meridian;
+			getTime.hour = ("0"+this.state.currentHours).slice(-2);
+			getTime.mins = ("0"+this.state.currentMinutes).slice(-2);
+			getTime.mer =  this.state.meridian;
 		}
 		else {
 			setTime = ("0"+this.state.currentHours).slice(-2) + " : " + ("0"+this.state.currentMinutes).slice(-2) ;
+			getTime.hour = ("0"+this.state.currentHours).slice(-2);
+			getTime.mins = ("0"+this.state.currentMinutes).slice(-2);
 		}
 		this.setState({ value: setTime, showPicker: false});
+		this.props.getTime(setTime, getTime);
 	}
 
 	resetValueClickHandler() {
@@ -137,8 +144,9 @@ class ReactTimePicki extends React.Component {
 	renderTimepicki() {
 		if(this.state.showPicker) {
 			return(
-				<div className={"timepicki-container"}>
-					<div className={"timepicki-input-wrap"}>
+				<div className={"timepicki-container "+this.renderWidthClass()}>
+					<span onClick={this.closeClickHandler.bind(this)} className={"close-icon"}><strong>x</strong></span>
+					<div className={"timepicki-input-wrap timepicki-input-wrap-left"}>
 						<span className={"timepicki-arrow up-arrow"} onClick={this.arrowClickHandler.bind(this, "hour", "up")}></span>
 						<span>
 							<input className={"timepicki-input"} type="text" maxLength="2" onChange={this.valueChangeHours.bind(this)} value={this.state.currentHours} name=""/>
@@ -156,7 +164,6 @@ class ReactTimePicki extends React.Component {
 					<div className={"timepicki-button-container"}>
 						<button className={"timepicki-button timepicki-done-button"} onClick={this.setValueClickHandler.bind(this)}>Done</button>
 						<button className={"timepicki-button timepicki-reset-button"} onClick={this.resetValueClickHandler.bind(this)}>Reset</button>
-						<button className={"timepicki-button timepicki-cancel-button"} onClick={this.closeClickHandler.bind(this)}>Cancel</button>
 					</div>
 				</div>
 			);
@@ -166,9 +173,16 @@ class ReactTimePicki extends React.Component {
 		}
 	}
 
+	renderWidthClass() {
+		if( this.props.timeFormat === "12" ){
+			return "timepicki-container-normal";
+		}
+		else return "timepicki-container-meridian";
+	}
+
 	renderMeridian() {
-		if(this.props.timeFormat === "12" ) {
-			return (<div className={"timepicki-input-wrap"}>
+		if( this.props.timeFormat === "12" ) {
+			return (<div className={"timepicki-input-wrap timepicki-input-wrap-right"}>
 				<span className={"timepicki-arrow up-arrow"} onClick={this.arrowClickHandler.bind(this, "meri", "up")}></span>
 				<span>
 					<input className={"timepicki-input"} type="text" maxLength="2" name="" value={this.state.meridian} readOnly />
